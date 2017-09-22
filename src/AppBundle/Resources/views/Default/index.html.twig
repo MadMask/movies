@@ -1,5 +1,13 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block content %}
-Hello World!
+
+    {% for movie in movies %}
+        <div class="indexMovies">
+            <a href="{{ path('movie_detail', {'id': movie.id}) }}">
+            <img src="img/posters/{{ movie.imdbId }}.jpg" class="posters_medium">
+            </a>
+        </div>
+    {% endfor %}
+
 {% endblock %}
