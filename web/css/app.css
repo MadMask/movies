@@ -1,15 +1,95 @@
-body{
-    background: #FFB75E;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ED8F03, #FFB75E);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ED8F03, #FFB75E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+body {
+    background: #1e130c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #9a8478, #9a8478);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #9a8478, #9a8478); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+h1{
+    color:orange;
+}
+
+a{
+    color: white;
+}
+
+a:hover{
+    color:lightblue;
 }
 
 .container{
     background-color: rgba(0,0,0,0.1);
 }
 
-.indexMovies{
-    float: left;
+.baseHeader{
+    margin-left: 15px;
+}
+
+.indexImg{
+    margin-top: 15px;
+}
+
+#indexLogo{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 10%;
+    height: 10%;
+}
+
+.orange li.active a,
+.orange li.active a:hover {
+    background-color: orange;
+}
+
+.divIndexTitle{
+    overflow: hidden;
+    margin-left: 10px;
+    margin-bottom:-40px;
+    display: inline-block;
+}
+
+.indexPoster{
+    margin-top: 10px;
+    border: solid 2px;
+    border-color: orange;
+}
+
+.detailPoster{
+    margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
+    border: solid 2px;
+    border-color: orange;
+}
+
+.movieDetails{
+    font-size: 115%;
+}
+
+
+.indexTitle{
+    font-family: 'Anton', sans-serif;
+    font-size: 60px;
+}
+
+.plotText{
+    font-size: 150%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.movieTitle{
+    color: white;
+    font-size: 115%;
+    margin-right: 10px;
+}
+
+.divMovieTitle{
+    margin-top: 10px;
+}
+
+.divMovieList{
+    margin-left: 15px;
 }

@@ -16,3 +16,7 @@
 /vendor/
 /web/bundles/
 /web/img/posters/
+
+\.idea/workspace\.xml
+
+web/img/

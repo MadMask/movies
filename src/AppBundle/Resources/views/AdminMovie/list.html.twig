@@ -1,0 +1,17 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block content %}
+
+    <div class="divMovieList">
+    <h1>Liste des films</h1>
+
+        {% for movie in movies %}
+            <div class="divMovieTitle">
+                <a class="movieTitle" href="{{ path('movie_detail', {'id': movie.id}) }}">{{ movie.title }}</a>
+                <a href="{{ path('movie_detail', {'id': movie.id}) }}" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-zoom-in"></span> Consulter</a>
+                <a href="{{ path('admin_movie_edit', {'id': movie.id}) }}" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span> Modifier</a>
+                <a href="{{ path('admin_movie_delete', {'id': movie.id}) }}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Supprimer</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -114,4 +114,8 @@ class Genre
     {
         return $this->movies;
     }
+
+    public function __toString() {
+        return $this->name;
+    }
 }

@@ -3,6 +3,27 @@ app_homepage:
     defaults: { _controller: AppBundle:Movie:index }
 
 movie_detail:
-    path:     /
-    defaults: { _controller: AppBundle:Movie:index }
+    path:     /movies/{id}/details
+    defaults: { _controller: AppBundle:Movie:detail }
+    requirements:
+          id: '\d+'
 
+admin_movie_create:
+    path:     /admin/movie_create
+    defaults: { _controller: AppBundle:AdminMovie:create }
+
+admin_movie_edit:
+    path:     /admin/{id}/movie_edit
+    defaults: { _controller: AppBundle:AdminMovie:edit }
+    requirements:
+              id: '\d+'
+
+admin_movie_delete:
+    path:     /admin/{id}/movie_delete
+    defaults: { _controller: AppBundle:AdminMovie:delete }
+    requirements:
+              id: '\d+'
+
+admin_movie_list:
+    path:     /admin/movie_list
+    defaults: { _controller: AppBundle:AdminMovie:list }

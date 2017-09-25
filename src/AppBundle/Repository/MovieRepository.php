@@ -13,10 +13,10 @@ class MovieRepository extends \Doctrine\ORM\EntityRepository
     public function findUpcomingMovies($resultsNumber = 50)
     {
         //version dql
-        $dql = "SELECT e
-                FROM AppBundle:Movie e
-                WHERE e.year >= :now
-                ORDER BY e.year";
+        $dql = "SELECT m
+                FROM AppBundle:Movie m
+                WHERE m.year >= :now
+                ORDER BY m.year";
 
         $query = $this->getEntityManager()->createQuery($dql);
 
@@ -25,7 +25,20 @@ class MovieRepository extends \Doctrine\ORM\EntityRepository
         $query->setMaxResults($resultsNumber);
         $movies = $query->getResult();
 
-        dump($movies);
+        return $movies;
+    }
+
+    public function findMoviesListAdmin($resultsNumber = 50)
+    {
+        //version dql
+        $dql = "SELECT m
+                FROM AppBundle:Movie m
+                ORDER BY m.dateCreated DESC";
+
+        $query = $this->getEntityManager()->createQuery($dql);
+
+        $query->setMaxResults($resultsNumber);
+        $movies = $query->getResult();
 
         return $movies;
     }

@@ -1,0 +1,31 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block content %}
+
+
+    <img src="{{ asset('img/posters/'~ movie.imdbId ~'.jpg') }}" alt="Movie logo" class="img-responsive detailPoster">
+
+    <div class="text-center">
+    <h1>{{ movie.title|upper }}</h1>
+        <h4><i>{{ movie.year }}</i> - Rating : {{ movie.rating }} ({{ movie.votes }} votes)</h4>
+
+    </div>
+
+    <div class="plotText">{{ movie.plot }}</div>
+
+    <div class="movieDetails">
+        <ul>
+            <li>Cast : {{ movie.cast }}</li>
+            <li>Directors : {{ movie.directors }}</li>
+            <li>Writers : {{ movie.writers }}</li>
+            <li>Runtime : {{ movie.runtime }}</li>
+        </ul>
+    </div>
+
+    <div class="text-center">
+        <iframe id="ytplayer" type="text/html" width="640" height="360"
+                src="http://www.youtube.com/embed/{{ movie.trailerId }}"
+                frameborder="0"/>
+    </div>
+
+{% endblock %}

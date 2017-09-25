@@ -4,9 +4,11 @@
 
     {% for movie in movies %}
         <div class="indexMovies">
-            <a href="{{ path('movie_detail', {'id': movie.id}) }}">
-            <img src="img/posters/{{ movie.imdbId }}.jpg" class="posters_medium">
-            </a>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                <a href="{{ path('movie_detail', {'id': movie.id}) }}">
+                    <img src="{{ asset('img/posters/'~ movie.imdbId ~'.jpg') }}" alt="Movie logo" class="img-responsive indexPoster">
+                </a>
+            </div>
         </div>
     {% endfor %}
 
