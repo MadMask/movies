@@ -5,6 +5,9 @@
     <div class="divMovieList">
     <h1>Liste des films</h1>
 
+        <a href="{{ path('admin_movie_create') }}" class="btn btn-success"><span class="glyphicon glyphicon glyphicon-plus"></span> Ajouter un film</a>
+        <br />
+
         {% for movie in movies %}
             <div class="divMovieTitle">
                 <a class="movieTitle" href="{{ path('movie_detail', {'id': movie.id}) }}">{{ movie.title }}</a>

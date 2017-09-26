@@ -86,10 +86,36 @@ a:hover{
     margin-right: 10px;
 }
 
+.reviewTitle{
+    color: white;
+    font-size: 115%;
+    margin-right: 10px;
+}
+
 .divMovieTitle{
     margin-top: 10px;
 }
 
 .divMovieList{
     margin-left: 15px;
+}
+
+.divReviewTitle{
+    margin-top: 10px;
+}
+
+.divReviewList{
+    margin-left: 15px;
+}
+
+.review{
+    font-size: 110%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.reviewTitle_movieDetail{
+    font-size: 115%;
+    font-weight: bold;
+    color:orange;
 }

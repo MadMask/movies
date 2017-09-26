@@ -121,6 +121,11 @@ class Movie
      */
     private $genres;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Review", mappedBy="movie", cascade="remove")
+     **/
+    private $reviewsList;
+
 
     /**
      * Constructor
@@ -485,5 +490,15 @@ class Movie
     public function getGenres()
     {
         return $this->genres;
+    }
+
+    /**
+     * Get reviewsList
+     *
+     * @return string
+     */
+    public function getReviewsList()
+    {
+        return $this->reviewsList;
     }
 }

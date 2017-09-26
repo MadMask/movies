@@ -8,7 +8,6 @@
 
 namespace AppBundle\Controller;
 
-
 use AppBundle\Form\MovieType;
 use AppBundle\Entity\Movie;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

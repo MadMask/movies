@@ -1,0 +1,16 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block content %}
+
+    <div class="divMovieList">
+        <h1>Liste des critiques</h1>
+
+        {% for review in reviews %}
+            <div class="divReviewTitle">
+                <a class="reviewTitle" href="{{ path('admin_review_edit', {'id': review.id}) }}">{{ review.title }}</a>
+                <a href="{{ path('admin_review_edit', {'id': review.id}) }}" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span> Modifier</a>
+                <a href="{{ path('admin_review_delete', {'id': review.id}) }}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Supprimer</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

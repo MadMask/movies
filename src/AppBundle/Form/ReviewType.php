@@ -2,13 +2,12 @@
 
 namespace AppBundle\Form;
 
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-class MovieType extends AbstractType
+class ReviewType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -16,24 +15,10 @@ class MovieType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('imdbId')
             ->add('title')
-            ->add('year')
-            ->add('cast')
-            ->add('directors')
-            ->add('writers')
-            ->add('plot')
+            ->add('text')
             ->add('rating')
-            ->add('votes')
-            ->add('runtime')
-            ->add('trailerId')
-            ->add('dateCreated')
-            ->add('dateModified')
-            ->add('genres', EntityType::class, [
-                "multiple" => true,
-            "expanded" => true,
-            "class" => "AppBundle:Genre",
-            "choice_label" => "name"])
+            ->add('username')
             ->add('submit', SubmitType::class, ["label" => "Valider"])
         ;
     }
@@ -44,7 +29,7 @@ class MovieType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Movie'
+            'data_class' => 'AppBundle\Entity\Review'
         ));
     }
 
@@ -53,7 +38,7 @@ class MovieType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_movie';
+        return 'appbundle_review';
     }
 
 

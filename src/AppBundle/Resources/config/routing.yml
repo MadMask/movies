@@ -27,3 +27,19 @@ admin_movie_delete:
 admin_movie_list:
     path:     /admin/movie_list
     defaults: { _controller: AppBundle:AdminMovie:list }
+
+admin_review_edit:
+    path:     /admin/{id}/review_edit
+    defaults: { _controller: AppBundle:AdminReview:edit }
+    requirements:
+              id: '\d+'
+
+admin_review_delete:
+    path:     /admin/{id}/review_delete
+    defaults: { _controller: AppBundle:AdminReview:delete }
+    requirements:
+              id: '\d+'
+
+admin_review_list:
+    path:     /admin/review_list
+    defaults: { _controller: AppBundle:AdminReview:list }
