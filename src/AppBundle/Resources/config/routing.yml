@@ -45,3 +45,15 @@ admin_review_delete:
 admin_review_list:
     path:     /admin/review_list
     defaults: { _controller: AppBundle:AdminReview:list }
+
+user_register:
+    path:     /utilisateurs/inscription/
+    defaults: { _controller: AppBundle:User:register }
+
+login:
+    path:     /connexion/
+    defaults: { _controller: AppBundle:User:login }
+
+#c'est symfony qui se charge des déconnexion donc on ne met pas de methode
+logout:
+    path:     /deconnexion/

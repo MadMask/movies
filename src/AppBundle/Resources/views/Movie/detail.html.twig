@@ -46,11 +46,13 @@
         <br />
     {% endif %}
 
-
+    {% if app.user %}
     <h3 class="colorOrange">Ajouter une critique</h3>
 
     {{ form(form, {'attr': {'novalidate':'novalidate'}}) }}
 
-
+    {% endif %}
 
 {% endblock %}
+
+{% block title %}{{ movie.title }} | {{ parent() }}{% endblock %}

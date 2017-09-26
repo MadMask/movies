@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-    <title>Movies</title>
+    <title>{% block title %}MOVIES @ HOME{% endblock %}</title>
 
 
 
@@ -32,8 +32,18 @@
         <nav>
             <ul class="nav nav-pills orange">
                 <li class="active btn-menu"><a href="{{ path('app_homepage') }}">Index</a></li>
-                <li class="btn-menu"><a href="{{ path('admin_movie_list') }}">Liste des films</a></li>
-                <li class="btn-menu"><a href="{{ path('admin_review_list') }}">Liste des critiques</a></li>
+                {% if app.user %}
+                    {% if app.user.roles == "ROLE_ADMIN" %}
+                        <li class="btn-menu"><a href="{{ path('admin_movie_list') }}">Liste des films</a></li>
+                        <li class="btn-menu"><a href="{{ path('admin_review_list') }}">Liste des critiques</a></li>
+                    {% else %}
+                        <li><a href="{{ path('logout') }}">Déconnexion ({{ app.user.username }})</a></li>
+                    {% endif %}
+                {% else %}
+                    <li><a href="{{ path('login') }}">Connexion</a></li>
+                    <li><a href="{{ path('user_register') }}">Inscription</a></li>
+                {% endif %}
+
             </ul>
         </nav>
     </div>
