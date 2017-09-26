@@ -1,6 +1,8 @@
 app_homepage:
-    path:     /
-    defaults: { _controller: AppBundle:Movie:index }
+    path:     /{page}
+    defaults: { _controller: AppBundle:Movie:index, page: 1 }
+    requirements:
+            page: '\d+'
 
 movie_detail:
     path:     /movies/{id}/details

@@ -11,13 +11,36 @@ use Symfony\Component\HttpFoundation\Request;
 
 class MovieController extends Controller
 {
-    public function indexAction()
+    public function indexAction($page)
     {
+        $moviesByPage = 20;
+        $offset = $page - 1;
+        $offset = $offset * $moviesByPage;
+
+        $minMovieId = $offset;
+        $maxMovieId = $offset + $moviesByPage;
+
+        $nextPage = $page + 1;
+        $previousPage = $page - 1;
+
         $repo = $this->getDoctrine()->getRepository("AppBundle:Movie");
-        $movies = $repo->findUpcomingMovies(50);
+        //$movies = $repo->findUpcomingMovies(50);
+        $movies = $repo->findBy([],
+            array('year' => 'DESC'),
+            $moviesByPage,
+            $offset);
+
+
+
+        $moviesCount = $repo->findAll();
 
         return $this->render('AppBundle:Default:index.html.twig', [
-            "movies" => $movies
+            "movies" => $movies,
+            "nextPage" => $nextPage,
+            "previousPage" => $previousPage,
+            "minMovieId" => $minMovieId,
+            "maxMovieId" => $maxMovieId,
+            "movieCount" => $moviesCount
         ]);
     }
 

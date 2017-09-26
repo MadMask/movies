@@ -30,18 +30,24 @@
                 frameborder="0"></iframe>
     </div>
 
-    {% for review in movie.reviewsList %}
-    <div class="review">
-        <h5 class="reviewTitle_movieDetail">{{ review.title }}</h5>
-        <p class="reviewText">{{ review.text }}</p>
-        Note : {{ review.rating }}/10
+    {% if movie.reviewsList|length > 0 %}
+        <h4 class="reviewNumber">Il y a {{ movie.reviewsList|length }} critiques pour ce film :</h4>
+        {% for review in movie.reviewsList %}
+        <div class="review">
+            <h5 class="reviewTitle_movieDetail">{{ review.title }}</h5>
+            <p class="reviewText">{{ review.text }}</p>
+            Note : {{ review.rating }}/10
+            <br />
+            <i>Par {{ review.username }}</i>
+        </div>
+        {% endfor %}
+    {% else %}
+        <h4 class="reviewNumber">Il n'y a pas encore de critique pour ce film.</h4>
         <br />
-        <i>Par {{ review.username }}</i>
-    </div>
-    {% endfor %}
+    {% endif %}
 
 
-    <h3>Ajouter une critique</h3>
+    <h3 class="colorOrange">Ajouter une critique</h3>
 
     {{ form(form, {'attr': {'novalidate':'novalidate'}}) }}
 

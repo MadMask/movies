@@ -19,6 +19,10 @@ a:hover{
     color:lightblue;
 }
 
+table, th, td {
+    border: 3px solid black;
+}
+
 .container{
     background-color: rgba(0,0,0,0.1);
 }
@@ -118,4 +122,24 @@ a:hover{
     font-size: 115%;
     font-weight: bold;
     color:orange;
+}
+
+.reviewNumber{
+    margin-top: 15px;
+    margin-bottom: -15px;
+}
+
+.colorOrange{
+    color:orange;
+}
+
+.paginationButton{
+    color: white;
+    background-color: orange;
+}
+
+.indexPagination{
+    margin-top: 15px;
+    margin-left: 15px;
+    font-size: 115%;
 }

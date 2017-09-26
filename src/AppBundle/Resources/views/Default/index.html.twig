@@ -1,7 +1,13 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block content %}
-
+    <div class="indexPagination">
+        {% if previousPage > 0 %}
+        <a href="{{ path('app_homepage', {'page': previousPage}) }}" class="btn paginationButton"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        {% endif %}
+            <a href="{{ path('app_homepage', {'page': nextPage}) }}" class="btn paginationButton"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    Affichage des films #{{ minMovieId }} à #{{ maxMovieId }} sur {{ movieCount|length }} films
+    </div>
     {% for movie in movies %}
         <div class="indexMovies">
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
