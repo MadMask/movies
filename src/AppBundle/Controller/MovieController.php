@@ -31,8 +31,8 @@ class MovieController extends Controller
             $offset);
 
 
-
-        $moviesCount = $repo->findAll();
+        $em = $this->getDoctrine()->getManager();
+        $moviesCount = $repo->countAll($em);
 
         return $this->render('AppBundle:Default:index.html.twig', [
             "movies" => $movies,
@@ -48,6 +48,9 @@ class MovieController extends Controller
     {
         $repo = $this->getDoctrine()->getRepository("AppBundle:Movie");
         $movie = $repo->find($id);
+
+        $user = $this->getUser();
+        dump($user);
 
         if($movie === null)
         {

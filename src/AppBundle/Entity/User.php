@@ -50,6 +50,13 @@ class User implements UserInterface
      */
     private $roles;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Movie", inversedBy="watchers")
+     */
+    private $watchedMovies;
+
 
     /**
      * Get id
@@ -159,8 +166,26 @@ class User implements UserInterface
 
     public function getSalt(){}
 
-    //parce qu'on hash le mdp
     public function eraseCredentials(){}
+
+    public function addWatchedMovies(\AppBundle\Entity\Movie $movie)
+    {
+        $this->watchedMovies[] = $movie;
+
+        return $this;
+    }
+
+    public function removeWatchedMovies(\AppBundle\Entity\Movie $movie)
+    {
+        $this->watchedMovies->removeElement($movie);
+
+        return $this;
+    }
+
+    public function getWatchedMovies()
+    {
+        return $this->watchedMovies;
+    }
 
 }
 

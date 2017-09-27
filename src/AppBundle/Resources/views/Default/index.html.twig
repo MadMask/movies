@@ -6,7 +6,7 @@
         <a href="{{ path('app_homepage', {'page': previousPage}) }}" class="btn paginationButton"><span class="glyphicon glyphicon-chevron-left"></span></a>
         {% endif %}
             <a href="{{ path('app_homepage', {'page': nextPage}) }}" class="btn paginationButton"><span class="glyphicon glyphicon-chevron-right"></span></a>
-    Affichage des films #{{ minMovieId }} à #{{ maxMovieId }} sur {{ movieCount|length }} films
+    Affichage des films #{{ minMovieId }} à #{{ maxMovieId }} sur {{ movieCount }} films
     </div>
     {% for movie in movies %}
         <div class="indexMovies">

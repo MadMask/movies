@@ -1,0 +1,23 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block content %}
+
+    <div class="divMovieList">
+        <h1>Films à regarder</h1>
+
+        {% for movie in app.user.watchedMovies %}
+            <div class="divMovieTitle">
+                <a class="movieTitle" href="{{ path('movie_detail', {'id': movie.id}) }}">{{ movie.title }}</a>
+                <a href="{{ path('movie_detail', {'id': movie.id}) }}" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-zoom-in"></span> Consulter</a>
+                {#<a href="{{ path('admin_movie_edit', {'id': movie.id}) }}" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span> Modifier</a>#}
+                <a href="{{ path('user_watched_movies_remove', {'id': movie.id}) }}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Retirer</a>
+
+            </div>
+            {% else %}
+                <h4 class="noWatchedMovies">Vous n'avez aucun film à regarder.</h4>
+                <br />
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block title %}Film à regarder | {{ parent() }}{% endblock %}

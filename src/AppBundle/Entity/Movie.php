@@ -122,6 +122,13 @@ class Movie
     private $genres;
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User", mappedBy="watchedMovies")
+     */
+    private $watchers;
+
+    /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Review", mappedBy="movie", cascade="remove")
      **/
     private $reviewsList;

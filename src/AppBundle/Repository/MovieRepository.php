@@ -50,7 +50,7 @@ class MovieRepository extends \Doctrine\ORM\EntityRepository
     {
         $qb = $entityManager->createQueryBuilder();
         $qb->select('count(movie.id)');
-        $qb->from('AppBundle:Account','movie');
+        $qb->from('AppBundle:Movie','movie');
 
         $count = $qb->getQuery()->getSingleScalarResult();
 

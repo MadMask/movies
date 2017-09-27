@@ -7,6 +7,12 @@ body {
     color: white;
 }
 
+
+footer{
+    margin-top: 30px;
+    padding-top: 10px;
+}
+
 h1{
     color:orange;
 }
@@ -142,4 +148,21 @@ table, th, td {
     margin-top: 15px;
     margin-left: 15px;
     font-size: 115%;
+}
+
+.btnWatchedMovies{
+    margin-left:15px;
+    margin-bottom: -75px;
+}
+
+.noWatchedMovies{
+    margin-top: 25px;
+}
+
+.genreButton{
+    background-color: cornflowerblue;
+}
+
+.backgroundOrange{
+    background-color: orange;
 }

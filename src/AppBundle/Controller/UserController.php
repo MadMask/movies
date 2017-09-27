@@ -64,4 +64,45 @@ class UserController extends Controller
             'error'         => $error,
         ]);
     }
+
+    public function watchedListAction()
+    {
+        return $this->render('AppBundle:User:watchedMovies.html.twig');
+    }
+
+    public function addWatchedListAction($id)
+    {
+        $user = $this->getUser();
+
+        $repo = $this->getDoctrine()->getRepository("AppBundle:Movie");
+        $movie = $repo->find($id);
+
+        $user->addWatchedMovies($movie);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+        $this->addFlash("success", "Le film a bien été ajouté aux films à regarder");
+
+        return $this->redirectToRoute('user_watched_movies');
+    }
+
+    public function removeWatchedListAction($id)
+    {
+        $user = $this->getUser();
+
+        $repo = $this->getDoctrine()->getRepository("AppBundle:Movie");
+        $movie = $repo->find($id);
+
+        $user->removeWatchedMovies($movie);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($user);
+        $em->flush();
+
+        $this->addFlash("success", "Le film a bien été retiré des films à regarder");
+
+        return $this->redirectToRoute('user_watched_movies');
+    }
 }

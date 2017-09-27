@@ -2,6 +2,13 @@
 
 {% block content %}
 
+    {% if app.user %}
+        {% if movie in app.user.watchedMovies %}
+        <a href="{{ path('user_watched_movies_remove', {'id': movie.id}) }}" class="btn btn-danger btnWatchedMovies"><span class="glyphicon glyphicon-star-empty"></span> Retirer des flims à regarder</a>
+        {% else %}
+        <a href="{{ path('user_watched_movies_add', {'id': movie.id}) }}" class="btn btn-success btnWatchedMovies"><span class="glyphicon glyphicon-star"></span> Ajouter aux flims à regarder</a>
+        {% endif %}
+    {% endif %}
 
     <img src="{{ asset('img/posters/'~ movie.imdbId ~'.jpg') }}" alt="Movie logo" class="img-responsive detailPoster">
 
@@ -10,6 +17,10 @@
         <h4><i>{{ movie.year }}</i> - Rating : {{ movie.rating }} ({{ movie.votes }} votes)</h4>
 
     </div>
+
+    {% for genre in movie.genres %}
+        <span class="btn genreButton">{{ genre.name }}</span>
+    {% endfor %}
 
     <div class="plotText">{{ movie.plot }}</div>
 

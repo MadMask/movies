@@ -50,10 +50,41 @@ user_register:
     path:     /utilisateurs/inscription/
     defaults: { _controller: AppBundle:User:register }
 
+user_watched_movies:
+    path:     /utilisateurs/films_a_regarder/
+    defaults: { _controller: AppBundle:User:watchedList }
+
+user_watched_movies_add:
+    path:     /utilisateurs/films_a_regarder/{id}/ajouter
+    defaults: { _controller: AppBundle:User:addWatchedList }
+    requirements:
+              id: '\d+'
+
+user_watched_movies_remove:
+    path:     /utilisateurs/films_a_regarder/{id}/retirer
+    defaults: { _controller: AppBundle:User:removeWatchedList }
+    requirements:
+              id: '\d+'
+
 login:
     path:     /connexion/
     defaults: { _controller: AppBundle:User:login }
 
-#c'est symfony qui se charge des déconnexion donc on ne met pas de methode
 logout:
     path:     /deconnexion/
+
+admin_user_edit:
+    path:     /admin/utilisateurs/{id}/modifier
+    defaults: { _controller: AppBundle:AdminUser:edit }
+    requirements:
+              id: '\d+'
+
+admin_user_delete:
+    path:     /admin/utilisateurs/{id}/supprimer
+    defaults: { _controller: AppBundle:AdminUser:delete }
+    requirements:
+              id: '\d+'
+
+admin_user_list:
+    path:     /admin/utilisateurs/liste
+    defaults: { _controller: AppBundle:AdminUser:list }

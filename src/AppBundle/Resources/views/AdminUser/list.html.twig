@@ -1,0 +1,18 @@
+{% extends 'AppBundle::base.html.twig' %}
+
+{% block content %}
+
+    <div class="divMovieList">
+        <h1>Liste des utilisateurs</h1>
+
+        {% for user in users %}
+            <div class="divMovieTitle">
+                <a class="movieTitle" href="{{ path('admin_user_edit', {'id': user.id}) }}">{{ user.username }}</a>
+                <a href="{{ path('admin_user_edit', {'id': user.id}) }}" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span> Modifier</a>
+                <a href="{{ path('admin_user_delete', {'id': user.id}) }}" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Supprimer</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block title %}Liste des utilisateurs | {{ parent() }}{% endblock %}
